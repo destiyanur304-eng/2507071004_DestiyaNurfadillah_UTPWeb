@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pustaka Lampung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-utama">
+        <h1 class="logo">Pustaka Lampung</h1>
+        <nav class="navigasi">
+            <a href="#koleksi">Koleksi</a>
+            <a href="#peminjaman">Peminjaman</a>
+            <a href="#info">Info</a>
+        </nav>
+        <button type="button" id="btn-info">Sembunyikan Aturan</button>
+    </header>
+
+    <main>
+        <section id="koleksi" class="bagian">
+            <h2>Koleksi Buku</h2>
+            <div class="kartu">
+                <h3>Daftar Koleksi Buku</h3>
+                <div class="table-container">
+                    <table border="1" cellspacing="0" cellpadding="10">
+                        <thead>
+                            <tr>
+                                <th>Kategori</th>
+                                <th>Judul Buku</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Pemrograman</td>
+                                <td>Dasar-Dasar HTML</td>
+                                <td class="status-buku">Tersedia</td>
+                            </tr>
+
+                            <tr>
+                                <td>Belajar CSS</td>
+                                <td class="status-buku">Dipinjam</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="2">Basis Data</td>
+                                <td>Pengantar SQL</td>
+                                <td class="status-buku">Tersedia</td>
+                            </tr>
+
+                            <tr>
+                                <td>Desain Basis Data</td>
+                                <td class="status-buku">Tersedia</td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" class="total-koleksi">Total koleksi: 4 buku</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="peminjaman" class="bagian">
+            <h2>Formulir Peminjaman Buku</h2>
+
+            <div class="kartu">
+                <form id="form-peminjaman" action="#" method="post" target="_self" enctype="multipart/form-data">
+                    <fieldset>
+                        <legend>Data Peminjam</legend>
+
+                            <div class="form-group">
+                                <label for="nama-anggota">Nama Lengkap</label>
+                                <input type="text" id="nama-anggota" name="nama-anggota" placeholder="Masukkan nama lengkap" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="npm-anggota">NPM</label>
+                                <input type="number" id="npm-anggota" name="npm-anggota" placeholder="Masukkan NPM">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email-anggota">Email</label>
+                                <input type="email" id="email-anggota" name="email-anggota" placeholder="Masukkan alamat email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pin-anggota">PIN Anggota</label>
+                                <input type="password" id="pin-anggota" name="pin-anggota" placeholder="Masukkan PIN anggota">
+                            </div>
+
+                        <div class="form-group">
+                            <label>Jenis Anggota</label>
+
+                            <div class="pilihan-group">
+                                <label><input type="radio" name="jenis-anggota" value="Mahasiswa">Mahasiswa</label>
+                                <label><input type="radio" name="jenis-anggota" value="Dosen">Dosen</label>
+                                <label><input type="radio" name="jenis-anggota" value="Umum">Umum</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Minat Kategori</label>
+
+                            <div class="pilihan-group">
+                                <label><input type="checkbox" name="minat-kategori" value="Pemrograman">Pemrograman</label>
+                                <label><input type="checkbox" name="minat-kategori" value="Basis Data">Basis Data</label>
+                                <label><input type="checkbox" name="minat-kategori" value="Jaringan">Jaringan</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-grid form-grid-tiga">
+
+                            <div class="form-group">
+                                <label for="pilih-buku">Pilih Buku</label>
+                                <select id="pilih-buku" name="pilih-buku">
+                                    <option value="" selected disabled>Pilih judul buku</option>
+                                    <option value="Dasar-Dasar HTML">Dasar-Dasar HTML</option>
+                                    <option value="Belajar CSS">Belajar CSS</option>
+                                    <option value="Pengantar SQL">Pengantar SQL</option>
+                                    <option value="Desain Basis Data">Desain Basis Data</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tanggal-pinjam">
+                                    Tanggal Peminjaman
+                                </label><input type="date" id="tanggal-pinjam" name="tanggal-pinjam">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lama-pinjam">Lama Peminjaman (hari)</label>
+                                <input type="number" id="lama-pinjam" name="lama-pinjam" min="1" value="1">
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="jurusan">Jurusan</label>
+                                <input type="text" id="jurusan" name="jurusan" list="daftar-jurusan" placeholder="Pilih atau ketik jurusan">
+
+                                <datalist id="daftar-jurusan">
+                                    <option value="Manajemen Informatika">
+                                    <option value="Ilmu Komputer">
+                                    <option value="Sistem Informasi">
+                                </datalist>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="upload-ktm">Upload KTM</label>
+                                <input type="file" id="upload-ktm" name="upload-ktm" accept="image/*,.pdf">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Buku yang Dipinjam</label>
+                            <div class="counter-buku">
+                                <button type="button" id="btn-kurang" aria-label="Kurangi jumlah buku">-</button>
+                                <span id="jumlah-buku">0</span>
+                                <button type="button" id="btn-tambah" aria-label="Tambah jumlah buku">+</button>
+                            </div>
+                        </div>
+
+                        <p class="preview">Kartu Anggota:<span id="preview-nama">Belum diisi</span></p>
+
+                        <div class="tombol-form">
+                            <button type="button" id="btn-hitung">Hitung Denda</button>
+                            <button type="submit">Ajukan Peminjaman</button>
+                            <button type="reset" class="btn-reset">Reset</button>
+                        </div>
+
+                        <div id="hasil-denda"></div>
+                        <p id="status-pinjam" aria-live="polite"></p>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+        <section id="info" class="bagian">
+            <h2>Informasi Perpustakaan</h2>
+
+            <div class="info-layout">
+                <article class="kartu"><span class="badge">INFO</span>
+                    <h3>Tentang Pustaka Lampung</h3>
+                    <img
+                        src="Perpustakaan jogja.jpg" alt="Suasana perpustakaan" class="gambar-info" width="350" height="230">
+                    <p>
+                        Pustaka Lampung merupakan perpustakaan digital
+                        sederhana yang menyediakan berbagai koleksi buku dari beberapa
+                        kategori, yang dapat menjadi sumber belajar bagi Mahasiswa.
+                    </p>
+
+                    <p>
+                        Pengunjung dapat mengajukan peminjaman sesuai aturan perpustakaan dan melihat koleksi. 
+                        Website ini diharapkan dapat mendukung kegiatan belajar dan 
+                        meningkatkan minat baca melalui pemanfaatan teknologi informasi.
+                    </p>
+                </article>
+
+                <aside id="info-aturan" class="kartu">
+                    <h3>Aturan Peminjaman</h3>
+                    <ol>
+                        <li>Maksimal meminjam 3 buku.</li>
+                        <li>Batas waktu peminjaman adalah 7 hari.</li>
+                        <li>Denda keterlambatan Rp1.000 per hari.</li>
+                    </ol>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2026 Pustaka Lampung. Semua hak dilindungi.</p>
+        <p>Kunjungi
+            <a href="https://www.perpusnas.go.id" target="_blank" rel="noopener noreferrer">Perpustakaan Nasional RI</a>
+        </p>
+    </footer>
+
+    <script src="Script.js"></script>
+</body>
+</html>
